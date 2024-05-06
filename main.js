@@ -97,20 +97,26 @@ const toggleElemBG = (elem) => {
 }
 
 const showFrontPage = () =>{
-    if (!austranavts.classList.contains("hide")) {
+    if (sectionPicofzday.classList.contains("hide") & !austranavts.classList.contains("hide")) {
         toggleElemBG(header);
         toggleElemHide(insight, austranavts, pagination);
-    } else if (austranavts.classList.contains("hide")) {
-    }
+    } else if (!sectionPicofzday.classList.contains("hide") & insight.classList.contains("hide")) {
+        toggleElemHide(sectionPicofzday, insight);
+    } else if (sectionPicofzday.classList.contains("hide") & austranavts.classList.contains("hide")) {
+
+    } else (console.log("hello - logo"))
 }
 
 const showSpaceCard = () => {
-    if (!insight.classList.contains("hide")) {
+    if (sectionPicofzday.classList.contains("hide") & !insight.classList.contains("hide")) {
         toggleElemBG(header);
         toggleElemHide(insight, austranavts, pagination);
-    } else if (insight.classList.contains("hide")) {
+    } else if (!sectionPicofzday.classList.contains("hide") & insight.classList.contains("hide")) {
+        toggleElemHide(sectionPicofzday, austranavts, pagination);
+        console.log("fjdngusdhfgsdhfguisdhfgiuh");
+    } else if (sectionPicofzday.classList.contains("hide") & austranavts.classList.contains("hide")) {
 
-    }
+    } else (console.log("hello - space"))
 }
 
 const makeSpaceCard = (data) => {
@@ -233,8 +239,44 @@ const openProductsPage = async (e) => {
     }
 }
 
+const showPictureOfTheDay = () => {
+    if (austranavts.classList.contains("hide") & !insight.classList.contains("hide")) {
+        toggleElemHide(sectionPicofzday, insight);
+        if(JSON.parse(localStorage.getItem("data"))) {
+            makePictureOfTheDay()
+        } else {
+            getDataPictureOfTheDay()
+        }
+    } else if (insight.classList.contains("hide") & !austranavts.classList.contains("hide")) {
+        toggleElemHide(sectionPicofzday, austranavts, pagination);
+        if(JSON.parse(localStorage.getItem("data"))) {
+            makePictureOfTheDay()
+        } else {
+            getDataPictureOfTheDay()
+        }
+    } 
+    else if (insight.classList.contains("hide") & austranavts.classList.contains("hide")) {
+
+    }
+}
+
+const makePictureOfTheDay = () => {
+    sectionPicofzday.innerHTML = ""
+    const data = JSON.parse(localStorage.getItem("data"));
+    console.log(data);
+    const card = `
+        <h1>NASA  Astronomy Picture Of The Day</h1>
+        <h2>${data.title}</h2>
+        <p>${data.date}</p>
+        <img src="${data.url}" alt="#">
+        <span>${data.explanation}</span>
+    `
+    sectionPicofzday.insertAdjacentHTML("beforeend", card);
+}
+
 
 logoBtn.addEventListener("click", showFrontPage)
 austranavtsBtn.addEventListener("click", getDataAustranavts);
 pagination.addEventListener("click", openProductsPage);
 historyBtn.addEventListener("click", getDataHistory);
+pistureOfTheDayBtn.addEventListener("click", showPictureOfTheDay);
