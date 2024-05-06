@@ -308,6 +308,97 @@
     font-weight: 300;
 }
 
+.austranavts {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 999;
+}
+
+.austranavts-cards {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 25%;
+    padding: 100px 0 300px;
+    color: white;
+    font-family: Montserrat;
+    justify-content: center;
+
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-size: 24px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 50px 50px;
+    gap: 20px;
+    background-color: #176f7f6b;
+    border: 2px double #176f7f;
+    box-shadow: 2px 2px 30px 2px #2096ab;
+}
+
+.card .purpose {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px double #176f7f;
+}
+
+.background1 {
+    margin-top: 350px;
+}
+
+.background1, .background2 {
+    width: 500px;
+    height: 500px;
+}
+
+.extra-div {
+    width: 65%;
+    height: 65%;
+    border-radius: 50%;
+    box-shadow: 5px 5px 30px white;
+}
+
+.div0 {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("./img/Remove-bg.ai_1714156219236.png");
+    top: 300px;
+    left: 39%;
+    opacity: 0;
+    z-index: -999;
+    transition: top 0.5s ease-out;
+}
+
+.pagination {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    z-index: 20;
+}
+
+.pagination button{
+    width: 50px;
+    height: 40px;
+
+}
+
+
+
 .slow-translate-S {
     opacity: 1;
     transform: translateX(0) rotate(0);
@@ -341,6 +432,24 @@
     transition: opacity 1s ease-in-out;   
 }
 
+.section-picofzday {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-family: Helvetica;
+    letter-spacing: 5px;
+    padding: 50px 120px 100px;
+    line-height: 42px;
+}
+
+.section-picofzday img {
+    width: 650px;
+}
 
 .hide {
     display: none;
@@ -355,6 +464,20 @@
 }
 
 @media screen and (max-width: 2000px) {
+    /* .austranavts {
+        padding: 50px 0 300px;
+    } */
+
+    .austranavts-card {
+        width: 400px;
+        padding: 25px;
+    }
+
+    .div0 {
+        width: 400px;
+        height: 400px;
+        
+    }
 
     .words .universe-simulator{
         top: 54%;
@@ -377,6 +500,17 @@
 }
 
 @media screen and (max-width: 1700px) {
+    .div0 {
+        left: 37%;
+    }
+    
+    .moving-planets {
+        height: 840px;
+    }
+    .words .universe-simulator{
+        left: 39%;
+        font-size: 0.85vw;
+    }
 
     .header {
         padding: 0 250px 0;
@@ -410,6 +544,29 @@
 }
 
 @media screen and (max-width: 1500px) {
+    .div0 {
+        width: 350px;
+        height: 350px;
+        /* left: 36%; */
+    }
+
+    .background1, .background2 {
+        width: 400px;
+        height: 550px;
+    }
+
+    .background1 {
+        margin-top: 200px;
+    }
+
+    .card {
+        padding: 35px;
+    }
+
+    .card .purpose {
+        max-height: 200px;
+        padding: 7px 15px 7px;
+    }
 
     .words .universe-simulator{
         top: 54%;
